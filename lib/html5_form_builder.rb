@@ -34,3 +34,5 @@ protected
   end
 
 end
+
+Formtastic::SemanticFormHelper.builder = HTML5FormBuilder
