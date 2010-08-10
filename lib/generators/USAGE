@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate html5_form_builder Thing
+
+    This will create:
+        what/will/it/create
