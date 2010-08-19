@@ -1,4 +1,7 @@
 class HTML5FormBuilder < Formtastic::SemanticFormBuilder
+  def name_for(method)
+    "#{object_name}[#{method.to_s}]"
+  end
 
 protected
 
