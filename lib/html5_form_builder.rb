@@ -36,6 +36,12 @@ protected
     ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('url', options)
   end
 
+  def date_input(method, options)
+    basic_input_helper(:date_field, :string, method, options)
+  end
+  def date_field(method, options)
+    ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('date', options)
+  end
 end
 
 Formtastic::SemanticFormHelper.builder = HTML5FormBuilder
