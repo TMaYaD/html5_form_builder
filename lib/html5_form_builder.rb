@@ -18,23 +18,23 @@ protected
   def numeric_input(method, options)
     basic_input_helper(:number_field, :numeric, method, options)
   end
-  def number_field(method, options)
-    ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('number', options)
-  end
+  #def number_field(method, options)
+  #  ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('number', options)
+  #end
 
   def email_input(method, options)
     basic_input_helper(:email_field, :string, method, options)
   end
-  def email_field(method, options)
-    ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('email', options)
-  end
+  #def email_field(method, options)
+  #  ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('email', options)
+  #end
 
   def url_input(method, options)
     basic_input_helper(:url_field, :string, method, options)
   end
-  def url_field(method, options)
-    ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('url', options)
-  end
+  #def url_field(method, options)
+  #  ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('url', options)
+  #end
 
   def date_input(method, options)
     basic_input_helper(:date_field, :string, method, options)
