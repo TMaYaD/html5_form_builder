@@ -15,6 +15,13 @@ protected
 
   alias_method_chain :input, :html5_required
 
+  def destroy_input(method, options)
+    options[:label] = "<a class=\"button negative\" onclick=\"remove_fields(this); return false;\" href='#'>#{options[:label]}</a>".html_safe
+    #(options[:label_html] ||= {})[:onclick] = "remove_fields(this)"
+    #(options[:label_html] ||= {})[:class] = [:negative]
+    basic_input_helper(:hidden_field, :string, method, options)
+  end
+
   def numeric_input(method, options)
     basic_input_helper(:number_field, :numeric, method, options)
   end
