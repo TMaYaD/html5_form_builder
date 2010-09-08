@@ -5,6 +5,14 @@ class HTML5FormBuilder < Formtastic::SemanticFormBuilder
 
 protected
 
+  def basic_input_helper(form_helper_method, type, method, options) #:nodoc:
+    html_options = options.delete(:input_html) || {}
+    html_options = default_string_options(method, type).merge(html_options) if [:numeric, :string, :password, :text].include?(type)
+
+    self.label(method, options_for_label(options)) <<
+    self.send(form_helper_method, method, html_options)
+  end
+
   def input_with_html5_required(method, options = {})
     options[:required] = method_required?(method) unless options.key?(:required)
     if options[:required]
@@ -47,7 +55,7 @@ protected
     basic_input_helper(:date_field, :string, method, options)
   end
   def date_field(method, options)
-    ::ActionView::Helpers::InstanceTag.new(object_name, method, self, options.delete(:object)).to_input_field_tag('date', options)
+    self.text_field(method, options.merge({:type => :date}))
   end
 end
 
